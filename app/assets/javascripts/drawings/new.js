@@ -11,18 +11,15 @@ $(document).ready(function() {
       method: "post",
       data: { points: points }
     });
+    points = [];
   }
 
   canvas.mousedown(function(event) {
-    context.beginPath();
-    context.moveTo(event.clientX, event.clientY);
     clicked = true;
   });
   canvas.mousemove(function(event) {
     if (clicked) {
-      context.lineTo(event.clientX, event.clientY);
       points.push({ x: event.clientX, y: event.clientY });
-      context.stroke();
     }
   });
   canvas.mouseup(function(event) {
